@@ -3,10 +3,10 @@
 import type { GetState } from "@reduxjs/toolkit";
 import React from "react";
 
-import WebStorage from "./WebStorage";
-import { cookiesOptions, exportedPersistConfig } from "./persistReducer";
-import { rehydrate } from "./persistSlice";
-import type { PersistGateProps } from "./types/PersistGate";
+import WebStorage from "../WebStorage";
+import { cookiesOptions, exportedPersistConfig } from "../persistReducer";
+import { rehydrate } from "../persistSlice";
+import type { PersistGateProps } from "../types/PersistGate";
 
 export default function PersistGate({
 	children,

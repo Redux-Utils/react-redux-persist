@@ -3,7 +3,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 
-import PersistGate from "../PersistGate";
+import PersistGate from "./PersistGate";
 
 type StoreProviderProps = Readonly<{
 	children: React.ReactNode;

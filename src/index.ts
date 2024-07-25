@@ -1,4 +1,4 @@
-import PersistGate from "./PersistGate";
+import PersistGate from "./components/PersistGate";
 import { persistReducer } from "./persistReducer";
 import { rehydrate } from "./persistSlice";
 import type { PersistConfig } from "./types/PersistReducer";

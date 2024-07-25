@@ -8,7 +8,7 @@
 		"rollup": "rollup -c"
 	},
 	"author": "Gabriel Logan",
-  "license": "MIT",
+	"license": "MIT",
 	"devDependencies": {
 		"@reduxjs/toolkit": "^2.2.6",
 		"@rollup/plugin-commonjs": "^26.0.1",
@@ -40,9 +40,9 @@
 		"redux": "^5.0.1"
 	},
 	"main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "files": [
-    "dist"
-  ],
-  "types": "dist/index.d.ts"
+	"module": "dist/esm/index.js",
+	"files": [
+		"dist"
+	],
+	"types": "dist/index.d.ts"
 }
