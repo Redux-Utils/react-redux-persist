@@ -13,10 +13,13 @@
 		"declaration": true,
 		"declarationDir": "types",
 		"sourceMap": true,
-		"outDir": "dist",
-		"moduleResolution": "node",
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"removeComments": true,
+		"moduleResolution": "Node",
 		"allowSyntheticDefaultImports": true,
-		"emitDeclarationOnly": true
+		"emitDeclarationOnly": true,
+		"rootDir": "src"
 	},
 	"include": ["src"],
 	"exclude": ["node_modules", "dist"]

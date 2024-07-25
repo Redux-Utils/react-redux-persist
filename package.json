@@ -3,6 +3,18 @@
 	"version": "0.0.1",
 	"description": "A simple template for a custom React component library",
 	"private": true,
+	"homepage": "https://github.com/Redux-Utils/react-redux-persist",
+	"repository": "github:Redux-Utils/react-redux-persist",
+	"bugs": "https://github.com/Redux-Utils/react-redux-persist/issues",
+	"keywords": [
+		"react",
+		"redux",
+		"persist",
+		"react-redux",
+		"react-component",
+		"react-library",
+		"react-redux-persist"
+	],
 	"scripts": {
 		"prettier": "prettier --write .",
 		"rollup": "rollup -c"
@@ -11,9 +23,6 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@reduxjs/toolkit": "^2.2.6",
-		"@rollup/plugin-commonjs": "^26.0.1",
-		"@rollup/plugin-node-resolve": "^15.2.3",
-		"@rollup/plugin-typescript": "^11.1.6",
 		"@types/jest": "^29.5.12",
 		"@types/js-cookie": "^3.0.6",
 		"@types/react": "^18.3.3",
@@ -28,10 +37,12 @@
 		"prettier": "^3.3.3",
 		"react": "^18.3.1",
 		"react-redux": "^9.1.2",
-		"rollup": "^4.19.0",
-		"rollup-plugin-dts": "^6.1.1",
 		"ts-jest": "^29.2.3",
 		"typescript": "^5.5.4"
+	},
+	"resolutions": {
+		"@typescript-eslint/eslint-plugin": "^7.17.0",
+		"@typescript-eslint/parser": "^7.17.0"
 	},
 	"peerDependencies": {
 		"js-cookie": "^3.0.5",
@@ -39,10 +50,17 @@
 		"react-redux": "^9.1.2",
 		"redux": "^5.0.1"
 	},
+	"sideEffects": false,
+	"packageManager": "yarn@3.1.1",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
 	"files": [
 		"dist"
 	],
-	"types": "dist/index.d.ts"
+	"types": "dist/index.d.ts",
+	"dependencies": {
+		"@rollup/plugin-babel": "^6.0.4",
+		"@rollup/plugin-replace": "^5.0.7",
+		"@rollup/plugin-terser": "^0.4.4"
+	}
 }

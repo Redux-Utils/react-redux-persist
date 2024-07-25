@@ -16,7 +16,7 @@ module.exports = {
 		node: true,
 		jest: true,
 	},
-	ignorePatterns: ["*.js"],
+	ignorePatterns: ["*.js", "*.mjs", "*.cjs", "tsup.config.ts"],
 	rules: {
 		"@typescript-eslint/interface-name-prefix": "off",
 		"@typescript-eslint/explicit-function-return-type": "error",
