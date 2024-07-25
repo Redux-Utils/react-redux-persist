@@ -1,6 +1,7 @@
 import type { GetState } from "@reduxjs/toolkit";
 import cookies from "js-cookie";
 
+import { prefix } from "./constants";
 import type {
 	CookiesOptions,
 	LoadState,
@@ -73,19 +74,21 @@ class Cookies {
 }
 
 export default class WebStorage {
-	private static readonly prefix: string = "react/redux/persist:";
 	private static readonly localStorage: LocalStorage = new LocalStorage();
 	private static readonly sessionStorage: SessionStorage = new SessionStorage();
 	private static readonly cookies: Cookies = new Cookies();
 
 	public static loadState(key: string, storage: WebStorageOptions): LoadState {
 		switch (storage.type) {
-			case "localStorage":
-				return this.localStorage.loadState(this.prefix + key);
-			case "sessionStorage":
-				return this.sessionStorage.loadState(this.prefix + key);
-			case "cookies":
-				return this.cookies.loadState(this.prefix + key);
+			case "localStorage": {
+				return this.localStorage.loadState(prefix + key);
+			}
+			case "sessionStorage": {
+				return this.sessionStorage.loadState(prefix + key);
+			}
+			case "cookies": {
+				return this.cookies.loadState(prefix + key);
+			}
 		}
 	}
 
@@ -97,15 +100,15 @@ export default class WebStorage {
 	): void {
 		switch (storage.type) {
 			case "localStorage": {
-				this.localStorage.saveState(this.prefix + key, state);
+				this.localStorage.saveState(prefix + key, state);
 				break;
 			}
 			case "sessionStorage": {
-				this.sessionStorage.saveState(this.prefix + key, state);
+				this.sessionStorage.saveState(prefix + key, state);
 				break;
 			}
 			case "cookies": {
-				this.cookies.saveState(this.prefix + key, state, cookiesOptions);
+				this.cookies.saveState(prefix + key, state, cookiesOptions);
 				break;
 			}
 		}

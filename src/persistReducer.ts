@@ -3,6 +3,7 @@ import { combineReducers } from "@reduxjs/toolkit";
 
 import WebStorage from "./WebStorage";
 import persistSlice from "./persistSlice";
+import returnStorageType from "./returnStorageType";
 import type {
 	InitialState,
 	PersistConfig,
@@ -12,16 +13,6 @@ import type { CookiesOptions, WebStorageOptions } from "./types/WebStorage";
 
 let exportedPersistConfig: PersistConfig;
 let cookiesOptions: CookiesOptions;
-
-function returnStorageType(
-	storage: WebStorageOptions | undefined,
-): WebStorageOptions {
-	if (!storage) {
-		return { type: "localStorage" };
-	}
-
-	return storage;
-}
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function persistReducer<R>(
