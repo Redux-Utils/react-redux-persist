@@ -1,15 +1,17 @@
 "use client";
 
+import React from "react";
 import { Provider } from "react-redux";
 
-import PersistGate from "../reduxPersist/PersistGate";
-import store from "../store";
+import PersistGate from "../PersistGate";
 
 type StoreProviderProps = Readonly<{
 	children: React.ReactNode;
 }>;
 
-export default function StoreProvider({ children }: StoreProviderProps) {
+export default function StoreProvider({
+	children,
+}: StoreProviderProps): React.JSX.Element {
 	return (
 		<Provider store={store}>
 			<PersistGate store={store}>{children}</PersistGate>
