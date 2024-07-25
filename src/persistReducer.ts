@@ -3,47 +3,12 @@ import { combineReducers } from "@reduxjs/toolkit";
 
 import WebStorage from "./WebStorage";
 import persistSlice from "./persistSlice";
-
-type StorageTypes = "cookies" | "sessionStorage" | "localStorage";
-
-interface CookiesOptions {
-	exprires?: number | Date;
-	secure?: boolean;
-	sameSite?: "strict" | "lax" | "none";
-	domain?: string;
-	path?: string;
-}
-
-interface BaseStorageOptions {
-	type: StorageTypes;
-}
-
-interface CookiesStorageOptions extends BaseStorageOptions {
-	type: "cookies";
-	options: CookiesOptions; // Inclui as opções específicas para cookies aqui
-}
-
-interface SessionStorageOptions extends BaseStorageOptions {
-	type: "sessionStorage";
-}
-
-interface LocalStorageOptions extends BaseStorageOptions {
-	type: "localStorage";
-}
-
-type ReducersWithInitialState<R> = { [K in keyof R]: Reducer<R[K]> };
-
-// União discriminada para WebStorageOptions
-export type WebStorageOptions =
-	| CookiesStorageOptions
-	| SessionStorageOptions
-	| LocalStorageOptions;
-
-export interface PersistConfig {
-	key: string;
-	storage?: WebStorageOptions;
-	whiteList: string[];
-}
+import type {
+	InitialState,
+	PersistConfig,
+	ReducersWithInitialState,
+} from "./types/PersistReducer";
+import type { CookiesOptions, WebStorageOptions } from "./types/WebStorage";
 
 let exportedPersistConfig: PersistConfig;
 let cookiesOptions: CookiesOptions;
@@ -75,9 +40,10 @@ export function persistReducer<R>(
 
 	const mixedWhiteList: string[] = [...whiteList, "persist"];
 
-	const initialState = WebStorage.loadState(key, storageType) as
-		| Partial<R>
-		| undefined;
+	const initialState = WebStorage.loadState(
+		key,
+		storageType,
+	) as InitialState<R>;
 
 	// Modificar os reducers para aceitar um estado inicial
 	const reducersWithInitialState: ReducersWithInitialState<R> = Object.keys(

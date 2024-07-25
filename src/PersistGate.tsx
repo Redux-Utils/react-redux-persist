@@ -1,16 +1,12 @@
 "use client";
 
-import type { GetState, Store } from "@reduxjs/toolkit";
+import type { GetState } from "@reduxjs/toolkit";
 import React from "react";
 
 import WebStorage from "./WebStorage";
 import { cookiesOptions, exportedPersistConfig } from "./persistReducer";
 import { rehydrate } from "./persistSlice";
-
-type PersistGateProps = Readonly<{
-	children: React.ReactNode;
-	store: Store;
-}>;
+import type { PersistGateProps } from "./types/PersistGate";
 
 export default function PersistGate({
 	children,

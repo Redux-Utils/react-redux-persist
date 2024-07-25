@@ -1,19 +1,12 @@
 import type { GetState } from "@reduxjs/toolkit";
 import cookies from "js-cookie";
 
-import type { WebStorageOptions } from "./persistReducer";
-
-interface CookiesOptions {
-	expires?: number | Date;
-	secure?: boolean;
-	sameSite?: "strict" | "Strict" | "lax" | "Lax" | "none" | "None";
-	domain?: string;
-	path?: string;
-}
-
-type LoadState = GetState<unknown> | undefined;
-
-type State = GetState<unknown>;
+import type {
+	CookiesOptions,
+	LoadState,
+	State,
+	WebStorageOptions,
+} from "./types/WebStorage";
 
 class LocalStorage {
 	public loadState(key: string): LoadState {
