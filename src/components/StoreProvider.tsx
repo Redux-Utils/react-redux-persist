@@ -2,6 +2,7 @@
 
 import { Provider } from "react-redux";
 
+import PersistGate from "../reduxPersist/PersistGate";
 import store from "../store";
 
 type StoreProviderProps = Readonly<{
@@ -9,5 +10,9 @@ type StoreProviderProps = Readonly<{
 }>;
 
 export default function StoreProvider({ children }: StoreProviderProps) {
-	return <Provider store={store}>{children}</Provider>;
+	return (
+		<Provider store={store}>
+			<PersistGate store={store}>{children}</PersistGate>
+		</Provider>
+	);
 }
