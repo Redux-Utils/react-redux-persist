@@ -1,4 +1,5 @@
-import { Action, combineReducers, Reducer } from "@reduxjs/toolkit";
+import type { Action, Reducer } from "@reduxjs/toolkit";
+import { combineReducers } from "@reduxjs/toolkit";
 
 import WebStorage from "./WebStorage";
 import persistSlice from "./persistSlice";
@@ -30,6 +31,8 @@ interface LocalStorageOptions extends BaseStorageOptions {
 	type: "localStorage";
 }
 
+type ReducersWithInitialState<R> = { [K in keyof R]: Reducer<R[K]> };
+
 // União discriminada para WebStorageOptions
 export type WebStorageOptions =
 	| CookiesStorageOptions
@@ -55,13 +58,14 @@ function returnStorageType(
 	return storage;
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function persistReducer<R>(
 	configs: PersistConfig,
 	reducers: { [K in keyof R]: Reducer<R[K]> },
 ) {
 	const { key, whiteList, storage } = configs;
 
-	const storageType = returnStorageType(storage);
+	const storageType: WebStorageOptions = returnStorageType(storage);
 
 	// Export the persist config to be used in the PersistGate
 	exportedPersistConfig = configs;
@@ -69,34 +73,33 @@ export function persistReducer<R>(
 		cookiesOptions = storageType.options;
 	}
 
-	const mixedWhiteList = [...whiteList, "persist"];
+	const mixedWhiteList: string[] = [...whiteList, "persist"];
 
 	const initialState = WebStorage.loadState(key, storageType) as
 		| Partial<R>
 		| undefined;
 
 	// Modificar os reducers para aceitar um estado inicial
-	const reducersWithInitialState = Object.keys(reducers).reduce(
-		(acc, reducerKey) => {
-			const key = reducerKey as keyof R;
+	const reducersWithInitialState: ReducersWithInitialState<R> = Object.keys(
+		reducers,
+	).reduce((acc, reducerKey) => {
+		const key = reducerKey as keyof R;
 
-			if (initialState && mixedWhiteList.includes(reducerKey)) {
-				const modifiedReducer: Reducer<R[keyof R]> = (
-					state = initialState[key as keyof R],
-					action: Action<string>,
-				) => {
-					return reducers[key](state, action);
-				};
+		if (initialState && mixedWhiteList.includes(reducerKey)) {
+			const modifiedReducer: Reducer<R[keyof R]> = (
+				state = initialState[key as keyof R],
+				action: Action<string>,
+			) => {
+				return reducers[key](state, action);
+			};
 
-				acc[key] = modifiedReducer;
-			} else {
-				acc[key] = reducers[key];
-			}
+			acc[key] = modifiedReducer;
+		} else {
+			acc[key] = reducers[key];
+		}
 
-			return acc;
-		},
-		{} as { [K in keyof R]: Reducer<R[K]> },
-	);
+		return acc;
+	}, {} as ReducersWithInitialState<R>);
 
 	const rootReducer = combineReducers({
 		...reducersWithInitialState,
