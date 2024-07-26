@@ -1,7 +1,6 @@
-"use client";
-
+import * as React from "react";
+// eslint-disable-next-line import/order
 import type { GetState } from "@reduxjs/toolkit";
-import React from "react";
 
 import WebStorage from "../WebStorage";
 import { cookiesOptions, exportedPersistConfig } from "../persistReducer";

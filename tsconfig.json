@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		// Default
-		"target": "ESNext",
+		"target": "ES6",
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"strict": true,
@@ -9,17 +9,16 @@
 
 		// Added
 		"jsx": "react",
-		"module": "ESNext",
+		"module": "ES6",
 		"declaration": true,
 		"declarationDir": "types",
+		"outDir": "dist",
 		"sourceMap": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"removeComments": true,
 		"moduleResolution": "Node",
 		"allowSyntheticDefaultImports": true,
-		"emitDeclarationOnly": true,
-		"rootDir": "src"
 	},
 	"include": ["src"],
 	"exclude": ["node_modules", "dist"]

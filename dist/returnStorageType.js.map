@@ -1,0 +1,1 @@
+{"version":3,"file":"returnStorageType.js","sourceRoot":"","sources":["../src/returnStorageType.ts"],"names":[],"mappings":"AAEA,SAAS,iBAAiB,CACzB,OAAsC;IAEtC,IAAI,CAAC,OAAO,EAAE,CAAC;QACd,OAAO,EAAE,IAAI,EAAE,cAAc,EAAE,CAAC;IACjC,CAAC;IAED,OAAO,OAAO,CAAC;AAChB,CAAC;AAED,eAAe,iBAAiB,CAAC"}
