@@ -47,7 +47,9 @@ export function persistReducer<R>(
 				state = initialState[key as keyof R],
 				action: Action<string>,
 			) => {
-				return reducers[key](state, action);
+				const reducer = reducers[key](state, action);
+
+				return reducer;
 			};
 
 			acc[key] = modifiedReducer;

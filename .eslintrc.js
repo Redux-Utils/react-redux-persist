@@ -53,5 +53,6 @@ module.exports = {
 			},
 		],
 		"@typescript-eslint/no-unnecessary-condition": "error",
+		"react-hooks/exhaustive-deps": "warn",
 	},
 };
