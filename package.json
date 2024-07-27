@@ -2,8 +2,16 @@
 	"name": "react-redux-persist",
 	"version": "0.0.2",
 	"description": "A simple template for a custom React component library",
-	"main": "dist/index.js",
+	"main": "./dist/cjs/index.js",
+	"module": "./dist/esm/index.js",
 	"types": "types/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/esm/index.js",
+			"require": "./dist/cjs/index.js",
+			"types": "./types/index.d.ts"
+		}
+	},
 	"homepage": "https://github.com/Redux-Utils/react-redux-persist",
 	"repository": "github:Redux-Utils/react-redux-persist",
 	"bugs": "https://github.com/Redux-Utils/react-redux-persist/issues",

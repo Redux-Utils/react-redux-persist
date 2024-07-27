@@ -3,27 +3,36 @@ import typescript from "@rollup/plugin-typescript";
 import clear from "rollup-plugin-clear";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import packageJson from "./package.json" assert { type: "json" };
 
 export default defineConfig({
 	input: "src/index.ts",
 	output: [
 		{
-			file: "dist/esm/index.mjs",
+			file: packageJson.module,
 			format: "esm",
-			sourcemap: true,
+			sourcemap: false,
 		},
 		{
-			file: "dist/cjs/index.js",
+			file: packageJson.main,
 			format: "cjs",
-			sourcemap: true,
+			sourcemap: false,
 		},
 	],
+	external: [
+		"react",
+		"react-dom",
+		"@reduxjs/toolkit",
+		"react-redux",
+	],
 	plugins: [
-		typescript(),
 		clear({
 			targets: ["dist", "types"],
 		}),
 		nodeResolve(),
 		commonjs(),
+		typescript({
+			declaration: false
+		}),
 	],
 });
