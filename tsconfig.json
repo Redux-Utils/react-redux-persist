@@ -12,6 +12,7 @@
 		"module": "ES6",
 		"declaration": true,
 		"declarationDir": "types",
+		"types": ["node", "jest", "@testing-library/jest-dom"],
 		"sourceMap": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
