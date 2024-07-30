@@ -8,6 +8,7 @@
 .eslintrc.*
 .prettierrc.*
 rollup.config.*
+jest.config.*
 
 # Ignorar arquivos de teste
 __tests__
