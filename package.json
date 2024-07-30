@@ -33,7 +33,7 @@
 		"test:coverage": "jest --coverage",
 		"lint": "eslint . --ext .ts",
 		"prettier": "prettier --write .",
-		"pr-check": "yarn prettier && yarn lint && yarn build && yarn test"
+		"pr-check": "yarn prettier && yarn lint && yarn build && yarn test:coverage"
 	},
 	"author": "Gabriel Logan",
 	"license": "MIT",
