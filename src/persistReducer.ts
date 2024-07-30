@@ -3,7 +3,7 @@ import { combineReducers, type Reducer } from "@reduxjs/toolkit";
 import WebStorage from "./WebStorage";
 import persistSlice from "./persistSlice";
 import returnStorageType from "./returnStorageType";
-import type { PersistConfig } from "./types/PersistReducer";
+import type { PersistConfig } from "./types/PersistConfig";
 import type { WebStorageOptions } from "./types/WebStorage";
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
