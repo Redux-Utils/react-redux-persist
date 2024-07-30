@@ -9,7 +9,6 @@ module.exports = {
 	extends: [
 		"plugin:@typescript-eslint/recommended",
 		"universe/node",
-		"universe/web",
 	],
 	root: true,
 	env: {
@@ -23,6 +22,9 @@ module.exports = {
 		"tsup.config.ts",
 		"dist",
 		"node_modules",
+		"__tests__",
+		"__mocks__",
+		"jest.config.*",
 	],
 	rules: {
 		"@typescript-eslint/interface-name-prefix": "off",
@@ -53,6 +55,5 @@ module.exports = {
 			},
 		],
 		"@typescript-eslint/no-unnecessary-condition": "error",
-		"react-hooks/exhaustive-deps": "warn",
 	},
 };

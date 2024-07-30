@@ -16,7 +16,12 @@ class LocalStorage {
 			if (serializedState === null) {
 				return undefined;
 			}
-			return JSON.parse(serializedState);
+
+			const parsedState = JSON.parse(serializedState);
+
+			delete parsedState.persist; // Remove the persist key
+
+			return parsedState;
 		} catch {
 			return undefined;
 		}
@@ -36,10 +41,16 @@ class SessionStorage {
 	public loadState(key: string): LoadState {
 		try {
 			const serializedState: string | null = sessionStorage.getItem(key);
+
 			if (serializedState === null) {
 				return undefined;
 			}
-			return JSON.parse(serializedState);
+
+			const parsedState = JSON.parse(serializedState);
+
+			delete parsedState.persist; // Remove the persist key
+
+			return parsedState;
 		} catch {
 			return undefined;
 		}
@@ -61,7 +72,12 @@ class Cookies {
 		if (serializedState === undefined) {
 			return undefined;
 		}
-		return JSON.parse(serializedState);
+
+		const parsedState = JSON.parse(serializedState);
+
+		delete parsedState.persist; // Remove the persist key
+
+		return parsedState;
 	}
 
 	public saveState(
@@ -96,7 +112,6 @@ export default class WebStorage {
 		key: string,
 		state: GetState<unknown>,
 		storage: WebStorageOptions,
-		cookiesOptions: CookiesOptions,
 	): void {
 		switch (storage.type) {
 			case "localStorage": {
@@ -108,7 +123,7 @@ export default class WebStorage {
 				break;
 			}
 			case "cookies": {
-				this.cookies.saveState(prefix + key, state, cookiesOptions);
+				this.cookies.saveState(prefix + key, state, storage.options);
 				break;
 			}
 		}
