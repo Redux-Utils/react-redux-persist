@@ -1,7 +1,7 @@
 {
 	"name": "react-redux-persist",
 	"version": "0.0.4",
-	"description": "A simple template for a custom React component library",
+	"description": "This is a library that helps you to persist your redux store and rehydrate it when the app is reloaded. It uses the local storage, session storage or cookies to store the data.",
 	"main": "./dist/cjs/index.js",
 	"module": "./dist/esm/index.js",
 	"types": "./types/index.d.ts",

@@ -1,8 +1,8 @@
 # React Redux Persist
 
-## JS README
+## TS README
 
-- [JS README](./JS.README.md)
+- [TS README](./README.md)
 
 ## Description
 
@@ -31,11 +31,7 @@ yarn add react-redux-persist
 ```typescript
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-import {
-	PersistConfig,
-	persistReducer,
-	persistStore,
-} from "react-redux-persist";
+import { persistReducer, persistStore } from "react-redux-persist";
 
 // Example of a reducer
 const exampleSlice = createSlice({
@@ -56,7 +52,7 @@ const reducers = {
 };
 
 // Create a configuration for the persist
-const configs: PersistConfig = {
+const configs = {
 	key: "root", // Key to store the data
 	storage: {
 		type: "localStorage", // Type of storage (local, session or cookies)
@@ -73,9 +69,6 @@ const store = configureStore({
 const persistor = persistStore(store, configs);
 
 export default persistor;
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
 ```
 
 or you can use
@@ -85,11 +78,7 @@ or you can use
 ```typescript
 import { legacy_createStore as createStore } from "redux";
 
-import {
-	PersistConfig,
-	persistReducer,
-	persistStore,
-} from "react-redux-persist";
+import { persistReducer, persistStore } from "react-redux-persist";
 
 // Example of a reducer
 const initialState = {
@@ -109,7 +98,7 @@ const exampleReducer = (state = initialState, action) => {
 };
 
 // Create a configuration for the persist
-const configs: PersistConfig = {
+const configs = {
 	key: "root", // Key to store the data
 	storage: {
 		type: "localStorage", // Type of storage (local, session or cookies)
