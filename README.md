@@ -1,13 +1,28 @@
-# IN DEVELOPMENT
+# LIB FOR TESTS
 
-## DON'T USE IT YET
+## DONT USE THIS LIB, ONLY IF YOU KNOW HOW TO USE
 
-## Installation
+### THIS IS A TEST LIB
+
+
+### COMANDS
 
 ```bash
-yarn add react-redux-persist
+npm install testes-npm
 ```
 
 ```bash
-npm install react-redux-persist
+npm uninstall testes-npm
+```
+
+```bash
+npx testes-npm
+```
+
+```bash
+yarn add testes-npm
+```
+
+```bash
+yarn remove testes-npm
 ```

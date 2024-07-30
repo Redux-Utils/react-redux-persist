@@ -25,6 +25,7 @@ module.exports = {
 		"__tests__",
 		"__mocks__",
 		"jest.config.*",
+		"types",
 	],
 	rules: {
 		"@typescript-eslint/interface-name-prefix": "off",

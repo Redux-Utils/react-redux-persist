@@ -8,14 +8,12 @@ import type { PersistConfig } from "./types/PersistConfig";
 function persistStore<S>(store: EnhancedStore<S>, configs: PersistConfig) {
 	const { key, storage } = configs;
 
+	const safeStorage = storage || {
+		type: "localStorage",
+	};
+
 	store.subscribe(() => {
-		WebStorage.saveState(
-			key,
-			store.getState(),
-			storage || {
-				type: "localStorage",
-			},
-		);
+		WebStorage.saveState(key, store.getState(), safeStorage);
 	});
 
 	store.dispatch(rehydrate());
