@@ -5,12 +5,16 @@
 .eslintignore
 .eslintrc
 .prettierrc
+.eslintrc.*
+.prettierrc.*
+rollup.config.*
 
 # Ignorar arquivos de teste
 __tests__
 test
 tests
 *.test.js
+__mocks__
 
 # Ignorar arquivos de exemplo
 examples
@@ -76,3 +80,5 @@ Thumbs.db
 ## Folders
 
 /src/
+.github
+coverage
