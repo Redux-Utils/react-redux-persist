@@ -25,14 +25,14 @@
 		"react-redux-persist"
 	],
 	"scripts": {
-		"prettier": "prettier --write .",
 		"rollup": "rollup -c",
 		"build:types": "tsc",
 		"build": "yarn rollup && yarn build:types",
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",
-		"lint": "eslint . --ext .ts,.tsx",
+		"lint": "eslint . --ext .ts",
+		"prettier": "prettier --write .",
 		"pr-check": "yarn prettier && yarn lint && yarn build && yarn test"
 	},
 	"author": "Gabriel Logan",

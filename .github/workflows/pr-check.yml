@@ -24,5 +24,7 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
+      - name: Yarn upgrade
+        run: yarn upgrade
       - name: Run tests
         run: yarn pr-check
