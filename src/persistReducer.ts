@@ -20,13 +20,22 @@ function persistReducer<R>(
 		persist: persistSlice,
 	});
 
-	const preloadedState =
+	type ReducersType = typeof reducers;
+
+	type PreloadedState =
+		| Partial<{
+				[K in keyof ReducersType]: ReturnType<ReducersType[K]>;
+		  }>
+		| undefined;
+
+	const preloadedState = (
 		storageType.type === "cookies"
 			? WebStorage.loadState(key, {
 					type: storageType.type,
 					options: storageType.options,
 				})
-			: WebStorage.loadState(key, { type: storageType.type });
+			: WebStorage.loadState(key, { type: storageType.type })
+	) as PreloadedState;
 
 	return {
 		combinedReducers,

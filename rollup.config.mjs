@@ -20,10 +20,7 @@ export default defineConfig({
 		},
 	],
 	external: [
-		"react",
-		"react-dom",
 		"@reduxjs/toolkit",
-		"react-redux",
 	],
 	plugins: [
 		clear({

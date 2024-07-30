@@ -1,6 +1,6 @@
 {
 	"name": "testes-npm",
-	"version": "1.0.79",
+	"version": "1.0.80",
 	"description": "A simple template for a custom React component library",
 	"main": "./dist/cjs/index.js",
 	"module": "./dist/esm/index.js",
@@ -59,7 +59,6 @@
 		"typescript": "^5.5.4"
 	},
 	"peerDependencies": {
-		"js-cookie": "^3.0.5",
 		"react": "^18.3.1",
 		"react-redux": "^9.1.2",
 		"redux": "^5.0.1"
