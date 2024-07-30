@@ -1,6 +1,6 @@
 {
 	"name": "react-redux-persist",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "A simple template for a custom React component library",
 	"main": "./dist/cjs/index.js",
 	"module": "./dist/esm/index.js",
