@@ -9,11 +9,13 @@ Project is written in TypeScript. However, you can use it in JavaScript projects
 ## Installation
 
 ### NPM
+
 ```bash
 npm install react-redux-persist
 ```
 
 ### Yarn
+
 ```bash
 yarn add react-redux-persist
 ```
@@ -25,7 +27,11 @@ yarn add react-redux-persist
 ```typescript
 import { configureStore } from "@reduxjs/toolkit";
 
-import { PersistConfig, persistReducer, persistStore } from "react-redux-persist";
+import {
+	PersistConfig,
+	persistReducer,
+	persistStore,
+} from "react-redux-persist";
 
 // Example of a reducer
 const exampleSlice = createSlice({
@@ -50,8 +56,8 @@ const configs: PersistConfig = {
 	key: "root", // Key to store the data
 	storage: {
 		type: "localStorage", // Type of storage (local, session or cookies)
-	}
-}
+	},
+};
 
 const persistReducers = persistReducer(configs, reducers);
 
@@ -68,7 +74,7 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 ```
 
-or
+or you can use
 
 ### Redux LEGACY
 
@@ -97,8 +103,8 @@ const configs: PersistConfig = {
 	key: "root", // Key to store the data
 	storage: {
 		type: "localStorage", // Type of storage (local, session or cookies)
-	}
-}
+	},
+};
 
 // Here you will pass all your reducers
 const reducers = {
@@ -107,7 +113,10 @@ const reducers = {
 
 const persistReducers = persistReducer(configs, reducers);
 
-const store = createStore(persistReducers.combinedReducers, persistReducers.preloadedState);
+const store = createStore(
+	persistReducers.combinedReducers,
+	persistReducers.preloadedState,
+);
 
 const persistor = persistStore(store, configs);
 
@@ -116,7 +125,7 @@ export default persistor;
 
 ## How to integrate with React
 
-```typescript
+```tsx
 import React from "react";
 
 import { BrowserRouter as Router } from "react-router-dom";
@@ -127,13 +136,10 @@ import store from "./redux/store"; // Is the persistor that you created and expo
 function App() {
 	return (
 		<Provider store={store}>
-			<Router>
-				{/* Your components */}
-			</Router>
+			<Router>{/* Your components */}</Router>
 		</Provider>
 	);
 }
-
 ```
 
 ## License
