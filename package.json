@@ -32,7 +32,8 @@
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",
-		"lint": "eslint . --ext .ts,.tsx"
+		"lint": "eslint . --ext .ts,.tsx",
+		"pr-check": "yarn prettier && yarn lint && yarn build && yarn test"
 	},
 	"author": "Gabriel Logan",
 	"license": "MIT",
