@@ -19,9 +19,7 @@ export default defineConfig({
 			sourcemap: false,
 		},
 	],
-	external: [
-		"@reduxjs/toolkit",
-	],
+	external: ["@reduxjs/toolkit"],
 	plugins: [
 		clear({
 			targets: ["dist", "types"],
@@ -29,7 +27,7 @@ export default defineConfig({
 		nodeResolve(),
 		commonjs(),
 		typescript({
-			declaration: false
+			declaration: false,
 		}),
 	],
 });

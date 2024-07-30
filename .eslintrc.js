@@ -6,10 +6,7 @@ module.exports = {
 		sourceType: "module",
 	},
 	plugins: ["@typescript-eslint/eslint-plugin"],
-	extends: [
-		"plugin:@typescript-eslint/recommended",
-		"universe/node",
-	],
+	extends: ["plugin:@typescript-eslint/recommended", "universe/node"],
 	root: true,
 	env: {
 		node: true,
@@ -22,8 +19,6 @@ module.exports = {
 		"tsup.config.ts",
 		"dist",
 		"node_modules",
-		"__tests__",
-		"__mocks__",
 		"jest.config.*",
 		"types",
 	],

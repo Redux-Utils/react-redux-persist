@@ -10,10 +10,10 @@
 		"module": "ES6",
 		"declaration": true,
 		"declarationDir": "types",
-		"removeComments": true,
+		"removeComments": false,
 		"emitDeclarationOnly": true,
 		"moduleResolution": "Node"
 	},
-	"include": ["src"],
+	"include": ["src", "__tests__"],
 	"exclude": ["node_modules", "dist"]
 }
