@@ -1,6 +1,6 @@
 {
 	"name": "react-redux-persist",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "This is a library that helps you to persist your redux store and rehydrate it when the app is reloaded. It uses the local storage, session storage or cookies to store the data.",
 	"main": "./dist/cjs/index.js",
 	"module": "./dist/esm/index.js",
@@ -62,10 +62,5 @@
 		"ts-node": "^10.9.2",
 		"tslib": "^2.6.3",
 		"typescript": "^5.5.4"
-	},
-	"peerDependencies": {
-		"react": "^18.3.1",
-		"react-redux": "^9.1.2",
-		"redux": "^5.0.1"
 	}
 }
