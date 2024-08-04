@@ -4,6 +4,21 @@
 
 - [TS README](./README.md)
 
+## Storages supported
+
+- Local Storage (localStorage)
+- type: "localStorage"
+- Session Storage (sessionStorage)
+- type: "sessionStorage"
+- Cookies (cookies)
+- type: "cookies"
+- cookieOptions: CookieOptions
+- expires: number | Date (in days or Date object)
+  - secure: boolean
+  - sameSite: SameSite
+  - domain: string
+  - path: string
+
 ## Description
 
 This is a library that helps you to persist your redux store and rehydrate it when the app is reloaded.
