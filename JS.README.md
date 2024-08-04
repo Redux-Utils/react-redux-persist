@@ -7,17 +7,17 @@
 ## Storages supported
 
 - Local Storage (localStorage)
-- type: "localStorage"
+  - type: "localStorage"
 - Session Storage (sessionStorage)
-- type: "sessionStorage"
+  - type: "sessionStorage"
 - Cookies (cookies)
-- type: "cookies"
-- cookieOptions: CookieOptions
-- expires: number | Date (in days or Date object)
-  - secure: boolean
-  - sameSite: SameSite
-  - domain: string
-  - path: string
+  - type: "cookies"
+  - cookieOptions: CookieOptions
+    - expires: number | Date (in days or Date object)
+    - secure: boolean (Indicates if the cookie is secure)
+    - sameSite: SameSite (The SameSite attribute of the cookie)
+    - domain: string (The domain of the cookie)
+    - path: string (The path of the cookie)
 
 ## Description
 
